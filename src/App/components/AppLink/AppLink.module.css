@@ -1,0 +1,23 @@
+.root {
+  border-radius: 4px;
+  display: block;
+  color: inherit;
+  line-height: 50px;
+  padding: 0 10px;
+  text-decoration: none;
+  transition: 0.3s all ease-in-out;
+}
+.root:hover {
+  color: #1abc9c;
+}
+
+.root--active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #1abc9c;
+}
+
+@media (max-width: 850px) {
+  .root {
+    display: inline-block;
+  }
+}

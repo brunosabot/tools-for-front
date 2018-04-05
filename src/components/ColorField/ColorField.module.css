@@ -1,0 +1,26 @@
+.root {
+  position: relative;
+}
+.value {
+  border-radius: 3px;
+  border: 1px solid #465f78;
+  box-shadow: none;
+  color: #ffffff;
+  font-size: 14px;
+  height: 44px;
+  line-height: 44px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: background-color 0.2s ease-in-out;
+  width: 44px;
+}
+.legend {
+  color: #969da6;
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+}
+td .legend {
+  display: none;
+}

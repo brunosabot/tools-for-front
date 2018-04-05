@@ -1,0 +1,31 @@
+.root {
+  background-color: #34495e;
+  border-radius: 3px;
+  border: 1px solid #465f78;
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+.legend {
+  font-family: monospace;
+  font-size: 14px;
+  max-width: 100%;
+  width: 280px;
+}
+.sample {
+  background: #ffb010;
+  bottom: 0;
+  height: 5px;
+  left: 0;
+  position: absolute;
+  transform-origin: 0 0;
+  transform: scale(0, 1);
+  transition-duration: 1s;
+  transition-property: "all";
+  width: 100%;
+}
+.root:hover .sample {
+  transform: scale(1, 1);
+}

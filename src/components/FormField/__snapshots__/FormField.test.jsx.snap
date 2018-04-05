@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`updates values 1`] = `
+<div
+  className="root "
+>
+  <label
+    htmlFor="form-field-test"
+  >
+    Test
+    <input
+      defaultValue=""
+      id="form-field-test"
+      name="test"
+      onChange={[Function]}
+      type="text"
+    />
+  </label>
+</div>
+`;
+
+exports[`updates values 2`] = `
+<div
+  className="root "
+>
+  <label
+    htmlFor="form-field-test"
+  >
+    Test
+    <input
+      defaultValue=""
+      id="form-field-test"
+      name="test"
+      onChange={[Function]}
+      type="text"
+    />
+  </label>
+</div>
+`;
+
+exports[`updates values 3`] = `
+<div
+  className="root "
+>
+  <label
+    htmlFor="form-field-test"
+  >
+    Test
+    <input
+      defaultValue=""
+      id="form-field-test"
+      name="test"
+      onChange={[Function]}
+      type="text"
+    />
+  </label>
+</div>
+`;
