@@ -5,7 +5,7 @@ import Group from "../../components/Group";
 import TextField from "../../components/TextField";
 import TextHuge from "../../components/TextHuge";
 
-import { getDate, getIsoDate } from "../../lib/date";
+import { getDate, getIsoDate, getUtcDate } from "../../lib/date";
 
 class TimestampConverter extends React.Component {
   constructor(props) {
@@ -154,7 +154,14 @@ class TimestampConverter extends React.Component {
             />
           ) : null}
         </Group>
-        <TextField>{getIsoDate(timestamp, millisecondMode)}</TextField>
+        <TextField style={{ fontFamily: "monospace" }}>
+          <div>
+            <b>ISO :</b> {getIsoDate(timestamp, millisecondMode)}
+          </div>
+          <div>
+            <b>UTC :</b> {getUtcDate(timestamp, millisecondMode)}
+          </div>
+        </TextField>
       </div>
     );
   }

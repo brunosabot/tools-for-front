@@ -1,4 +1,4 @@
-import { getDate, getIsoDate } from "./";
+import { getDate, getIsoDate, getUtcDate } from "./";
 
 it("Get data from timestamp", () => {
   const date = getDate(1234567890, false);
@@ -26,12 +26,22 @@ it("Get data from microseconds type timestamp", () => {
   });
 });
 
+it("Get UTC date from timestamp", () => {
+  const date = getUtcDate(1234567890, false);
+  expect(date).toBe("Fri, 13 Feb 2009 23:31:30 GMT");
+});
+
+it("Get UTC date from microseconds type timestamp", () => {
+  const date = getUtcDate(1234567890123, true);
+  expect(date).toBe("Fri, 13 Feb 2009 23:31:30 GMT");
+});
+
 it("Get ISO date from timestamp", () => {
   const date = getIsoDate(1234567890, false);
-  expect(date).toBe("Fri, 13 Feb 2009 23:31:30 GMT");
+  expect(date).toBe("2009-02-13T23:31:30.000Z");
 });
 
 it("Get ISO date from microseconds type timestamp", () => {
   const date = getIsoDate(1234567890123, true);
-  expect(date).toBe("Fri, 13 Feb 2009 23:31:30 GMT");
+  expect(date).toBe("2009-02-13T23:31:30.123Z");
 });

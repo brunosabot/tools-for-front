@@ -19,7 +19,7 @@ export const getDate = (timestamp, millisecondMode) => {
   };
 };
 
-export const getIsoDate = (timestamp, millisecondMode) => {
+export const getUtcDate = (timestamp, millisecondMode) => {
   let t = parseInt(timestamp, 10);
 
   if (millisecondMode === false && `${timestamp}`.length <= 10) {
@@ -29,4 +29,16 @@ export const getIsoDate = (timestamp, millisecondMode) => {
   const date = new Date(t);
 
   return date.toUTCString();
+};
+
+export const getIsoDate = (timestamp, millisecondMode) => {
+  let t = parseInt(timestamp, 10);
+
+  if (millisecondMode === false && `${timestamp}`.length <= 10) {
+    t *= 1000;
+  }
+
+  const date = new Date(t);
+
+  return date.toISOString();
 };
