@@ -1,6 +1,6 @@
 # Build and coverage
 
-[![build status](https://gitlab.com/brunosabot/tools-for-front/badges/master/build.svg)](https://gitlab.com/brunosabot/tools-for-front/commits/master) [![coverage report](https://gitlab.com/brunosabot/tools-for-front/badges/master/coverage.svg)](https://gitlab.com/brunosabot/tools-for-front/commits/master)
+[![pipeline status](https://gitlab.com/brunosabot/tools-for-front/badges/master/pipeline.svg)](https://gitlab.com/brunosabot/tools-for-front/commits/master) [![coverage report](https://gitlab.com/brunosabot/tools-for-front/badges/master/coverage.svg)](https://gitlab.com/brunosabot/tools-for-front/commits/master)
 
 # Tools
 
