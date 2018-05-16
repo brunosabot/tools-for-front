@@ -15,6 +15,7 @@ const BezierCurves = async(() => import("../routes/BezierCurves").then(m => m.de
 const BaseSixtyFour = async(() => import("../routes/BaseSixtyFour").then(m => m.default));
 const Pretty = async(() => import("../routes/Pretty").then(m => m.default));
 const Sha = async(() => import("../routes/Sha").then(m => m.default));
+const Uuid = async(() => import("../routes/Uuid").then(m => m.default));
 
 const App = () => (
   <Router>
@@ -32,6 +33,7 @@ const App = () => (
             <Route location={location} path="/base-64" component={BaseSixtyFour} />
             <Route location={location} path="/pretty" component={Pretty} />
             <Route location={location} path="/sha" component={Sha} />
+            <Route location={location} path="/uuid" component={Uuid} />
           </main>
         </div>
       )}

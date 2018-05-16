@@ -14,6 +14,7 @@ const AppMenu = () => (
     <AppLink to="/base-64" label="Base 64" />
     <AppLink to="/pretty" label="Pretty JSON" />
     <AppLink to="/sha" label="Sha" />
+    <AppLink to="/uuid" label="Uuid" />
   </nav>
 );
 
