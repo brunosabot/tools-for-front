@@ -1,0 +1,29 @@
+name: Deploy to Google Cloud Storage
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v1
+
+      - name: Setup node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install npm dependencies and build the app
+        run: |
+          yarn install
+          yarn run test:coverage
+          yarn run build
+
+      - name: Authenticated with Google Cloud
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting:prod
