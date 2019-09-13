@@ -38,27 +38,35 @@ class PhotoshopShadow extends React.Component {
   handleAngle = angle => {
     this.setState(() => ({ angle: parseInt(angle, 10) || 0 }));
   };
+
   handleDistance = d => {
     this.setState(() => ({ distance: parseInt(d, 10) || 0 }));
   };
+
   handleSpread = spread => {
     this.setState(() => ({ spread: parseInt(spread, 10) || 0 }));
   };
+
   handleSize = size => {
     this.setState(() => ({ size: parseInt(size, 10) || 0 }));
   };
+
   handleInner = inner => {
     this.setState(() => ({ inner: parseInt(inner, 10) || false }));
   };
+
   handleR = r => {
     this.setState(() => ({ r: parseInt(r, 10) || 0 }));
   };
+
   handleG = g => {
     this.setState(() => ({ g: parseInt(g, 10) || 0 }));
   };
+
   handleB = b => {
     this.setState(() => ({ b: parseInt(b, 10) || 0 }));
   };
+
   handleOpacity = opacity => {
     this.setState(() => ({ opacity: parseInt(opacity, 10) || 0 }));
   };
@@ -71,32 +79,14 @@ class PhotoshopShadow extends React.Component {
       <div className="page-photoshop-shadow">
         <TextHuge>Convert Photoshop shadow to CSS</TextHuge>
         <Group>
-          <FormField
-            type="number"
-            name="r"
-            label="R"
-            defaultValue={this.state.r}
-            onChange={this.handleR}
-          />
-          <FormField
-            type="number"
-            name="g"
-            label="G"
-            defaultValue={this.state.g}
-            onChange={this.handleG}
-          />
-          <FormField
-            type="number"
-            name="b"
-            label="B"
-            defaultValue={this.state.b}
-            onChange={this.handleB}
-          />
+          <FormField type="number" name="r" label="R" defaultValue={r} onChange={this.handleR} />
+          <FormField type="number" name="g" label="G" defaultValue={g} onChange={this.handleG} />
+          <FormField type="number" name="b" label="B" defaultValue={b} onChange={this.handleB} />
           <FormField
             type="number"
             name="opacity"
             label="Opacity"
-            defaultValue={this.state.opacity}
+            defaultValue={opacity}
             onChange={this.handleOpacity}
           />
         </Group>
@@ -105,28 +95,28 @@ class PhotoshopShadow extends React.Component {
             name="angle"
             label="Angle"
             type="number"
-            defaultValue={this.state.angle}
+            defaultValue={angle}
             onChange={this.handleAngle}
           />
           <FormField
             name="distance"
             label="Distance"
             type="number"
-            defaultValue={this.state.distance}
+            defaultValue={distance}
             onChange={this.handleDistance}
           />
           <FormField
             name="spread"
             label="Spread"
             type="number"
-            defaultValue={this.state.spread}
+            defaultValue={spread}
             onChange={this.handleSpread}
           />
           <FormField
             name="size"
             label="Size"
             type="number"
-            defaultValue={this.state.size}
+            defaultValue={size}
             onChange={this.handleSize}
           />
         </Group>

@@ -29,32 +29,31 @@ class Sha extends React.PureComponent {
   }
 
   getHash() {
-    return shajs(this.state.type)
-      .update(this.state.input)
+    const { input, type } = this.state;
+
+    return shajs(type)
+      .update(input)
       .digest("hex");
   }
 
   handleInput(input) {
     this.setState(() => ({ input }));
   }
+
   handleType(type) {
     this.setState(() => ({ type }));
   }
 
   render() {
+    const { input, type } = this.state;
     return (
       <div>
         <Group>
-          <FormField
-            name="input"
-            label="Input"
-            defaultValue={this.state.input}
-            onChange={this.handleInput}
-          />
+          <FormField name="input" label="Input" defaultValue={input} onChange={this.handleInput} />
           <SelectField
             name="type"
             label="Type"
-            value={this.state.type}
+            value={type}
             options={selectValues}
             onChange={this.handleType}
           />

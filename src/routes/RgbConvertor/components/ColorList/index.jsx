@@ -15,12 +15,34 @@ const ColorList = ({ hex, onRemove }) => {
       <td>
         <ColorField color={`#${hex}`} />
       </td>
-      <td>#{hex}</td>
       <td>
-        rgb({rgb[0]}, {rgb[1]}, {rgb[2]})
+#
+        {hex}
       </td>
       <td>
-        cmyk({cmyk[0]}, {cmyk[1]}, {cmyk[2]}, {cmyk[3]})
+        rgb(
+        {rgb[0]}
+, 
+        {' '}
+        {rgb[1]}
+, 
+        {' '}
+        {rgb[2]}
+)
+      </td>
+      <td>
+        cmyk(
+        {cmyk[0]}
+, 
+        {' '}
+        {cmyk[1]}
+, 
+        {' '}
+        {cmyk[2]}
+, 
+        {' '}
+        {cmyk[3]}
+)
       </td>
       <td>{name}</td>
       <td>

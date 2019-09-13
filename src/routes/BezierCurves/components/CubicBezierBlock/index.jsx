@@ -5,16 +5,24 @@ import CubicBezierSvg from "../CubicBezierSvg";
 
 import styles from "./CubicBezierBlock.module.css";
 
-const CubicBezierBlock = e => (
-  <div className={styles.root} key={`${e.x1} ${e.y1},${e.x2} ${e.y2}`}>
-    <CubicBezierSvg {...e} />
+const CubicBezierBlock = ({ x1, x2, y1, y2 }) => (
+  <div className={styles.root} key={`${x1} ${y1},${x2} ${y2}`}>
+    <CubicBezierSvg x1={x1} y1={y1} x2={x2} y2={y2} />
     <div className={styles.legend}>
-      cubic-bezier({e.x1}, {e.y1}, {e.x2}, {e.y2})
+      cubic-bezier(
+      {x1}
+      , &nbsp;
+      {y1}
+      , &nbsp;
+      {x2}
+      , &nbsp;
+      {y2}
+      )
     </div>
     <div
       className={styles.sample}
       style={{
-        transitionTimingFunction: `cubic-bezier(${e.x1}, ${e.y1}, ${e.x2}, ${e.y2})`
+        transitionTimingFunction: `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`
       }}
     />
   </div>

@@ -19,11 +19,13 @@ class UrlEncodeDecode extends React.Component {
   handleEncoded(url) {
     this.setState(() => ({ url: decode(url) }));
   }
+
   handleDecoded(url) {
     this.setState(() => ({ url }));
   }
 
   render() {
+    const { url } = this.state;
     return (
       <div className="page-photoshop-shadow">
         <TextHuge>Encode / Decode an URL</TextHuge>
@@ -31,17 +33,12 @@ class UrlEncodeDecode extends React.Component {
           <FormField
             name="encoded"
             label="Encoded URL"
-            value={encode(this.state.url)}
+            value={encode(url)}
             onChange={this.handleEncoded}
           />
         </Group>
         <Group>
-          <FormField
-            name="decoded"
-            label="Decoded URL"
-            value={this.state.url}
-            onChange={this.handleDecoded}
-          />
+          <FormField name="decoded" label="Decoded URL" value={url} onChange={this.handleDecoded} />
         </Group>
       </div>
     );

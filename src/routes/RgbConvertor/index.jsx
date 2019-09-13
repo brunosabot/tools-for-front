@@ -57,29 +57,60 @@ class RgbConvertor extends React.Component {
   handleR = r => {
     this.rgb({ r: parseInt(r, 10) });
   };
+
   handleG = g => {
     this.rgb({ g: parseInt(g, 10) });
   };
+
   handleB = b => {
     this.rgb({ b: parseInt(b, 10) });
   };
+
   handleC = c => {
     this.cmyk({ c: parseFloat(c) });
   };
+
   handleY = y => {
     this.cmyk({ y: parseFloat(y) });
   };
+
   handleM = m => {
     this.cmyk({ m: parseFloat(m) });
   };
+
   handleK = k => {
     this.cmyk({ k: parseFloat(k) });
   };
+
   handleHex = hex => {
     this.hex(hex);
   };
 
-  rgb({ r = this.state.r, g = this.state.g, b = this.state.b }) {
+  saveLocalStorage = () => {
+    const { hex, saves } = this.state;
+
+    const newRgbSaves = new Set(saves);
+    newRgbSaves.add(hex);
+    localStorage.setItem("rgbConvertor", JSON.stringify([...newRgbSaves]));
+    this.loadSaves();
+  };
+
+  removeLocalStorage = hex => () => {
+    const { saves } = this.state;
+
+    const newRgbSaves = new Set(saves);
+    newRgbSaves.delete(hex);
+    localStorage.setItem("rgbConvertor", JSON.stringify([...newRgbSaves]));
+    this.loadSaves();
+  };
+
+  rgb({ r: inputR, g: inputG, b: inputB }) {
+    const { r: stateR, g: stateG, b: stateB } = this.state;
+
+    const r = inputR || stateR;
+    const g = inputG || stateG;
+    const b = inputB || stateB;
+
     const [c, y, m, k] = RGBToCMYK(r, g, b);
     const hex = RGBToHex(r, g, b);
 
@@ -95,7 +126,14 @@ class RgbConvertor extends React.Component {
     }));
   }
 
-  cmyk({ c = this.state.c, m = this.state.m, y = this.state.y, k = this.state.k }) {
+  cmyk({ c: inputC, m: inputM, y: inputY, k: inputK }) {
+    const { c: stateC, m: stateM, y: stateY, k: stateK } = this.state;
+
+    const c = inputC || stateC;
+    const m = inputM || stateM;
+    const y = inputY || stateY;
+    const k = inputK || stateK;
+
     const [r, g, b] = CMYKToRGB(c, m, y, k);
     const hex = CMYKToHex(c, m, y, k);
 
@@ -127,82 +165,27 @@ class RgbConvertor extends React.Component {
     }));
   }
 
-  saveLocalStorage = () => {
-    const newRgbSaves = new Set(this.state.saves);
-    newRgbSaves.add(this.state.hex);
-    localStorage.setItem("rgbConvertor", JSON.stringify([...newRgbSaves]));
-    this.loadSaves();
-  };
-
-  removeLocalStorage = hex => () => {
-    const newRgbSaves = new Set(this.state.saves);
-    newRgbSaves.delete(hex);
-    localStorage.setItem("rgbConvertor", JSON.stringify([...newRgbSaves]));
-    this.loadSaves();
-  };
-
   render() {
-    const colorName = hexToName(this.state.hex);
+    const { hex, r, g, b, c, m, y, k, saves } = this.state;
+    const colorName = hexToName(hex);
 
     return (
       <div className="page-photoshop-shadow">
         <TextHuge>RGB &lt;&gt; CMYK &lt;&gt; Hex</TextHuge>
         <Group>
-          <FormField
-            type="number"
-            name="r"
-            label="R"
-            value={this.state.r}
-            onChange={this.handleR}
-          />
-          <FormField
-            type="number"
-            name="g"
-            label="G"
-            value={this.state.g}
-            onChange={this.handleG}
-          />
-          <FormField
-            type="number"
-            name="b"
-            label="B"
-            value={this.state.b}
-            onChange={this.handleB}
-          />
+          <FormField type="number" name="r" label="R" value={r} onChange={this.handleR} />
+          <FormField type="number" name="g" label="G" value={g} onChange={this.handleG} />
+          <FormField type="number" name="b" label="B" value={b} onChange={this.handleB} />
         </Group>
         <Group>
-          <FormField
-            type="number"
-            name="c"
-            label="C"
-            value={this.state.c}
-            onChange={this.handleC}
-          />
-          <FormField
-            type="number"
-            name="y"
-            label="Y"
-            value={this.state.y}
-            onChange={this.handleY}
-          />
-          <FormField
-            type="number"
-            name="m"
-            label="M"
-            value={this.state.m}
-            onChange={this.handleM}
-          />
-          <FormField
-            type="number"
-            name="k"
-            label="K"
-            value={this.state.k}
-            onChange={this.handleK}
-          />
+          <FormField type="number" name="c" label="C" value={c} onChange={this.handleC} />
+          <FormField type="number" name="y" label="Y" value={y} onChange={this.handleY} />
+          <FormField type="number" name="m" label="M" value={m} onChange={this.handleM} />
+          <FormField type="number" name="k" label="K" value={k} onChange={this.handleK} />
         </Group>
         <Group>
-          <FormField name="hex" label="Hex" value={this.state.hex} onChange={this.handleHex} />
-          <ColorField color={`#${this.state.hex}`} />
+          <FormField name="hex" label="Hex" value={hex} onChange={this.handleHex} />
+          <ColorField color={`#${hex}`} />
         </Group>
         {colorName ? <TextField>{colorName}</TextField> : ""}
         <Button onClick={this.saveLocalStorage}>Save</Button>
@@ -218,9 +201,7 @@ class RgbConvertor extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.saves.map(hex => (
-              <ColorList hex={hex} key={hex} onRemove={this.removeLocalStorage(hex)} />
-            ))}
+            {saves.map(h => <ColorList hex={h} key={h} onRemove={this.removeLocalStorage(h)} />)}
           </tbody>
         </table>
       </div>

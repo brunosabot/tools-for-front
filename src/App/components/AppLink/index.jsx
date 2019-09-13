@@ -4,18 +4,11 @@ import { NavLink } from "react-router-dom";
 
 import styles from "./AppLink.module.css";
 
-const AppLink = ({ to, exact, label }) => {
-  const args = {
-    className: styles.root,
-    activeClassName: styles.rootActive,
-    to
-  };
-  if (exact) {
-    args.exact = true;
-  }
-
-  return <NavLink {...args}>{label}</NavLink>;
-};
+const AppLink = ({ to, exact, label }) => (
+  <NavLink className={styles.root} activeClassName={styles.rootActive} exact={exact} to={to}>
+    {label}
+  </NavLink>
+);
 
 AppLink.defaultProps = {
   exact: false

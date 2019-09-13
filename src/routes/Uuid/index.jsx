@@ -13,12 +13,19 @@ const selectValues = [
 ];
 
 class Uuid extends React.PureComponent {
-  state = { type: "uuidv4" };
+  constructor(props) {
+    super(props);
+
+    this.state = { type: "uuidv4" };
+  }
 
   getUuid() {
-    if (this.state.type === "uuidv1") {
+    const { type } = this.state;
+
+    if (type === "uuidv1") {
       return uuidv1();
-    } else if (this.state.type === "uuidv4") {
+    }
+    if (type === "uuidv4") {
       return uuidv4();
     }
 
@@ -34,20 +41,21 @@ class Uuid extends React.PureComponent {
   };
 
   render() {
+    const { type } = this.state;
     return (
-      <React.Fragment>
+      <>
         <Group>
           <SelectField
             name="type"
             label="Type"
-            value={this.state.type}
+            value={type}
             options={selectValues}
             onChange={this.handleType}
           />
         </Group>
         <TextField>{this.getUuid()}</TextField>
         <Button onClick={this.update}>New UUID</Button>
-      </React.Fragment>
+      </>
     );
   }
 }

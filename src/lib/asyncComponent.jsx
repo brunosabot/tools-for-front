@@ -4,12 +4,18 @@ export default function asyncComponent(getComponent) {
   class AsyncComponent extends React.PureComponent {
     static Component = null;
 
-    state = {
-      Component: AsyncComponent.Component
-    };
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        Component: AsyncComponent.Component
+      };
+    }
 
     async componentWillMount() {
-      if (!this.state.Component) {
+      const { Component: C } = this.state;
+
+      if (!C) {
         const Component = await getComponent();
         AsyncComponent.Component = Component;
         this.setState(() => ({ Component }));
@@ -20,6 +26,7 @@ export default function asyncComponent(getComponent) {
       const { Component } = this.state;
 
       if (Component) {
+        // eslint-disable-next-line react/jsx-props-no-spreading
         return <Component {...this.props} />;
       }
 

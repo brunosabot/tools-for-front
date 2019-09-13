@@ -28,11 +28,14 @@ class BaseSixtyFour extends React.Component {
       this.setState(() => ({ string, valid: false }));
     }
   }
+
   handleDecoded(string) {
     this.setState(() => ({ string }));
   }
 
   render() {
+    const { string, valid } = this.state;
+
     return (
       <div className="page-base-64">
         <TextHuge>Encode / Decode an string</TextHuge>
@@ -40,7 +43,7 @@ class BaseSixtyFour extends React.Component {
           <FormField
             name="encoded"
             label="Encoded string"
-            value={this.state.valid ? btoa(this.state.string) : this.state.string}
+            value={valid ? btoa(string) : string}
             onChange={this.handleEncoded}
           />
         </Group>
@@ -48,7 +51,7 @@ class BaseSixtyFour extends React.Component {
           <FormField
             name="decoded"
             label="Decoded string"
-            value={this.state.string}
+            value={string}
             onChange={this.handleDecoded}
           />
         </Group>

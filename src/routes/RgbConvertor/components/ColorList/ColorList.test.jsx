@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ColorList from "./";
+import ColorList from ".";
 
 it("renders without crashing", () => {
   const div = document.createElement("tbody");

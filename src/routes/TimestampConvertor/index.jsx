@@ -26,49 +26,61 @@ class TimestampConverter extends React.Component {
   }
 
   getDateObject() {
-    return new Date(parseInt(this.state.timestamp, 10));
+    const { timestamp } = this.state;
+    return new Date(parseInt(timestamp, 10));
   }
+
   handleTimestamp = timestamp => {
     this.setState(() => ({ timestamp: parseInt(timestamp, 10) }));
   };
+
   handleYear = value => {
     const d = this.getDateObject();
     d.setUTCFullYear(value);
     this.setState(() => ({ timestamp: d.getTime() }));
   };
+
   handleMonth = value => {
     const d = this.getDateObject();
     d.setUTCMonth(value - 1);
     this.setState(() => ({ timestamp: d.getTime() }));
   };
+
   handleDay = value => {
     const d = this.getDateObject();
     d.setUTCDate(value);
     this.setState(() => ({ timestamp: d.getTime() }));
   };
+
   handleHours = value => {
     const d = this.getDateObject();
     d.setUTCHours(value);
     this.setState(() => ({ timestamp: d.getTime() }));
   };
+
   handleMinutes = value => {
     const d = this.getDateObject();
     d.setUTCMinutes(value);
     this.setState(() => ({ timestamp: d.getTime() }));
   };
+
   handleSeconds = value => {
     const d = this.getDateObject();
     d.setSeconds(value);
     this.setState(() => ({ timestamp: d.getTime() }));
   };
+
   handleMilliseconds = value => {
     const d = this.getDateObject();
     d.setUTCMilliseconds(value);
     this.setState(() => ({ timestamp: d.getTime() }));
   };
+
   handleMillisecondMode = e => {
+    const { timestamp: t } = this.state;
+
     if (e) {
-      const timestamp = `${this.state.timestamp}000`;
+      const timestamp = `${t}000`;
       this.setState(() => ({ timestamp, millisecondMode: e }));
     } else {
       const d = this.getDateObject();
@@ -93,7 +105,7 @@ class TimestampConverter extends React.Component {
           <FormField
             name="timestamp"
             label="Timestamp"
-            value={this.state.timestamp}
+            value={timestamp}
             type="number"
             onChange={this.handleTimestamp}
           />
@@ -156,10 +168,14 @@ class TimestampConverter extends React.Component {
         </Group>
         <TextField style={{ fontFamily: "monospace" }}>
           <div>
-            <b>ISO :</b> {getIsoDate(timestamp, millisecondMode)}
+            <b>ISO :</b>
+            &nbsp;
+            {getIsoDate(timestamp, millisecondMode)}
           </div>
           <div>
-            <b>UTC :</b> {getUtcDate(timestamp, millisecondMode)}
+            <b>UTC :</b>
+            &nbsp;
+            {getUtcDate(timestamp, millisecondMode)}
           </div>
         </TextField>
       </div>

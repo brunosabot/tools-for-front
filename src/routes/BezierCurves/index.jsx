@@ -52,58 +52,40 @@ class BezierCurves extends React.Component {
   handleX1 = x => {
     this.setState(() => ({ x1: Math.max(0, Math.min(1, parseFloat(x, 10))) }));
   };
+
   handleY1 = y => {
     this.setState(() => ({ y1: Math.max(0, Math.min(1, parseFloat(y, 10))) }));
   };
+
   handleX2 = x => {
     this.setState(() => ({ x2: Math.max(0, Math.min(1, parseFloat(x, 10))) }));
   };
+
   handleY2 = y => {
     this.setState(() => ({ y2: Math.max(0, Math.min(1, parseFloat(y, 10))) }));
   };
 
   render() {
+    const { x1, x2, y1, y2 } = this.state;
+
     return (
       <div className="page-bezier-curves">
         <Group>
-          <FormField
-            type="number"
-            name="x1"
-            label="X1"
-            value={this.state.x1}
-            onChange={this.handleX1}
-          />
-          <FormField
-            type="number"
-            name="y1"
-            label="Y1"
-            value={this.state.y1}
-            onChange={this.handleY1}
-          />
-          <FormField
-            type="number"
-            name="x2"
-            label="X2"
-            value={this.state.x2}
-            onChange={this.handleX2}
-          />
-          <FormField
-            type="number"
-            name="y2"
-            label="Y2"
-            value={this.state.y2}
-            onChange={this.handleY2}
-          />
+          <FormField type="number" name="x1" label="X1" value={x1} onChange={this.handleX1} />
+          <FormField type="number" name="y1" label="Y1" value={y1} onChange={this.handleY1} />
+          <FormField type="number" name="x2" label="X2" value={x2} onChange={this.handleX2} />
+          <FormField type="number" name="y2" label="Y2" value={y2} onChange={this.handleY2} />
         </Group>
         <Group>
-          <CubicBezierBlock
-            x1={this.state.x1}
-            y1={this.state.y1}
-            x2={this.state.x2}
-            y2={this.state.y2}
-          />
+          <CubicBezierBlock x1={x1} y1={y1} x2={x2} y2={y2} />
           {BezierCurves.curves.map(e => (
-            <CubicBezierBlock key={Object.values(e).join(",")} {...e} />
+            <CubicBezierBlock
+              key={Object.values(e).join(",")}
+              x1={e.x1}
+              y1={e.y1}
+              x2={e.x2}
+              y2={e.y2}
+            />
           ))}
         </Group>
       </div>

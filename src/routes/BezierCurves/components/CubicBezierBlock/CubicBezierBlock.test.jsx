@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CubicBezierBlock from "./";
+import CubicBezierBlock from ".";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
