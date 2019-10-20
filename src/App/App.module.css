@@ -4,7 +4,7 @@
 }
 
 .content {
-  padding: 25px;
+  padding: 32px;
   overflow: auto;
   height: 100%;
   flex-grow: 10;
@@ -16,12 +16,12 @@ table {
   margin: 1em 0;
 }
 td {
-  border-bottom: 1px solid #465f78;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   padding: 0.75em;
 }
 th {
   text-align: left;
-  border-bottom: 2px solid #465f78;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
   padding: 0.75em;
 }
 

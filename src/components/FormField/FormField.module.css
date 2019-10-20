@@ -2,11 +2,11 @@
   position: relative;
 }
 .root input {
-  background-color: #34495e;
-  border-radius: 3px;
-  border: 1px solid #465f78;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.42);
   box-shadow: none;
-  color: #ffffff;
+  color: inherit;
   font-size: 14px;
   height: 44px;
   line-height: 44px;
@@ -16,13 +16,16 @@
   transition: background-color 0.2s ease-in-out;
   width: 100%;
 }
+.root input:focus,
+.root input:hover {
+  border-color: rgba(0, 0, 0, 0.87);
+}
 .root input[type="checkbox"] {
   display: inline-block;
   vertical-align: -16px;
   width: 44px;
 }
 .root label {
-  color: #969da6;
   display: block;
   font-size: 12px;
   font-weight: 400;

@@ -12,7 +12,7 @@ export default function asyncComponent(getComponent) {
       };
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
       const { Component: C } = this.state;
 
       if (!C) {

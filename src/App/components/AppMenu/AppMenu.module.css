@@ -1,9 +1,9 @@
 .root {
-  background-color: #18232f;
+  background-color: #ffffff;
   height: 100%;
   padding: 20px 10px;
-  color: white;
-  width: 200px;
+  color: rgba(0, 0, 0, 0.87);
+  width: 250px;
   flex-shrink: 0;
   flex-grow: 0;
 }

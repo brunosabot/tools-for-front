@@ -5,6 +5,7 @@ import FormField from "../../components/FormField";
 import SelectField from "../../components/SelectField";
 import TextField from "../../components/TextField";
 import Group from "../../components/Group";
+import TextHuge from "../../components/TextHuge/index";
 
 const selectValues = [
   { value: "sha", label: "SHA" },
@@ -48,6 +49,7 @@ class Sha extends React.PureComponent {
     const { input, type } = this.state;
     return (
       <div>
+        <TextHuge>SHA</TextHuge>
         <Group>
           <FormField name="input" label="Input" defaultValue={input} onChange={this.handleInput} />
           <SelectField

@@ -2,11 +2,11 @@
   position: relative;
 }
 .root select {
-  background-color: #34495e;
-  border-radius: 3px;
-  border: 1px solid #465f78;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.42);
   box-shadow: none;
-  color: #ffffff;
+  color: inherit;
   font-size: 14px;
   height: 44px;
   line-height: 44px;
@@ -16,8 +16,11 @@
   transition: background-color 0.2s ease-in-out;
   width: 100%;
 }
+.root select:focus,
+.root select:hover {
+  border-color: rgba(0, 0, 0, 0.87);
+}
 .root label {
-  color: #969da6;
   display: block;
   font-size: 12px;
   font-weight: 400;

@@ -3,9 +3,9 @@
 }
 .value {
   border-radius: 3px;
-  border: 1px solid #465f78;
+  border: 1px solid currentColor;
   box-shadow: none;
-  color: #ffffff;
+  color: currentColor;
   font-size: 14px;
   height: 44px;
   line-height: 44px;
@@ -16,7 +16,6 @@
   width: 44px;
 }
 .legend {
-  color: #969da6;
   display: block;
   font-size: 12px;
   font-weight: 400;

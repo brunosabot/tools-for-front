@@ -1,20 +1,24 @@
-.root {
-  background-color: #34495e;
+.CubicBezierBlock {
+  background-color: #ffffff;
   border-radius: 3px;
-  border: 1px solid #465f78;
-  display: inline-block;
-  margin: 10px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
   padding: 20px;
   position: relative;
   text-align: center;
+  width: 350px;
+  height: 200px;
 }
-.legend {
-  font-family: monospace;
+.Legend {
   font-size: 14px;
   max-width: 100%;
-  width: 280px;
 }
-.sample {
+.Sample {
   background: #ffb010;
   bottom: 0;
   height: 5px;
@@ -26,6 +30,6 @@
   transition-property: "all";
   width: 100%;
 }
-.root:hover .sample {
+.CubicBezierBlock:hover .Sample {
   transform: scale(1, 1);
 }

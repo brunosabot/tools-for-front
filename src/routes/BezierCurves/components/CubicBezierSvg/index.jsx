@@ -47,7 +47,7 @@ const CubicBezierSvg = ({ x1, y1, x2, y2 }) => {
     >
       <path
         stroke="#ffb010"
-        strokeWidth="3"
+        strokeWidth="5"
         fill="none"
         d={`M${p0x} ${p0y} C ${p1x} ${p1y}, ${p2x} ${p2y}, ${p3x} ${p3y}`}
       />

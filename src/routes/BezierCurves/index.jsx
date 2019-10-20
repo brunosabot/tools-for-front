@@ -3,6 +3,8 @@ import React from "react";
 import CubicBezierBlock from "./components/CubicBezierBlock";
 import FormField from "../../components/FormField";
 import Group from "../../components/Group";
+import CubicBezierGroup from "./components/CubicBezierGroup/index";
+import TextHuge from "../../components/TextHuge/index";
 
 class BezierCurves extends React.Component {
   static curves = [
@@ -70,13 +72,14 @@ class BezierCurves extends React.Component {
 
     return (
       <div className="page-bezier-curves">
+        <TextHuge>Bezier curves</TextHuge>
         <Group>
           <FormField type="number" name="x1" label="X1" value={x1} onChange={this.handleX1} />
           <FormField type="number" name="y1" label="Y1" value={y1} onChange={this.handleY1} />
           <FormField type="number" name="x2" label="X2" value={x2} onChange={this.handleX2} />
           <FormField type="number" name="y2" label="Y2" value={y2} onChange={this.handleY2} />
         </Group>
-        <Group>
+        <CubicBezierGroup>
           <CubicBezierBlock x1={x1} y1={y1} x2={x2} y2={y2} />
           {BezierCurves.curves.map(e => (
             <CubicBezierBlock
@@ -87,7 +90,7 @@ class BezierCurves extends React.Component {
               y2={e.y2}
             />
           ))}
-        </Group>
+        </CubicBezierGroup>
       </div>
     );
   }

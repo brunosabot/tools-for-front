@@ -6,6 +6,7 @@ import SelectField from "../../components/SelectField";
 import TextField from "../../components/TextField";
 import Group from "../../components/Group";
 import Button from "../../components/Button/index";
+import TextHuge from "../../components/TextHuge/index";
 
 const selectValues = [
   { value: "uuidv1", label: "UUID version 1" },
@@ -44,6 +45,7 @@ class Uuid extends React.PureComponent {
     const { type } = this.state;
     return (
       <>
+        <TextHuge>UUID</TextHuge>
         <Group>
           <SelectField
             name="type"

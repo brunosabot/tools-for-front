@@ -1,0 +1,7 @@
+.CubicBezierGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+  grid-gap: 16px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
