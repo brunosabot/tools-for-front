@@ -36,7 +36,7 @@ const ColorList = ({ hex, onRemove }) => {
           onClick={onRemove}
           role="button"
           tabIndex="-1"
-          className={styles.buttonRemove}
+          className={styles.ButtonRemove}
         >
           X
         </div>
