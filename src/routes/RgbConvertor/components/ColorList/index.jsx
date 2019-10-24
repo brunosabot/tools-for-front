@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./ColorList.module.css";
 
 import { hexToName, hexToRGB, hexToCMYK } from "../../../../lib/color";
 
@@ -15,34 +16,14 @@ const ColorList = ({ hex, onRemove }) => {
       <td>
         <ColorField color={`#${hex}`} />
       </td>
-      <td>
-#
-        {hex}
-      </td>
+      <td>#{hex}</td>
       <td>
         rgb(
-        {rgb[0]}
-, 
-        {' '}
-        {rgb[1]}
-, 
-        {' '}
-        {rgb[2]}
-)
+        {rgb[0]}, {rgb[1]}, {rgb[2]})
       </td>
       <td>
         cmyk(
-        {cmyk[0]}
-, 
-        {' '}
-        {cmyk[1]}
-, 
-        {' '}
-        {cmyk[2]}
-, 
-        {' '}
-        {cmyk[3]}
-)
+        {cmyk[0]}, {cmyk[1]}, {cmyk[2]}, {cmyk[3]})
       </td>
       <td>{name}</td>
       <td>
@@ -55,6 +36,7 @@ const ColorList = ({ hex, onRemove }) => {
           onClick={onRemove}
           role="button"
           tabIndex="-1"
+          className={styles.buttonRemove}
         >
           X
         </div>
