@@ -4,7 +4,12 @@
 
 # Tools
 
-* Converter from Photoshop box shadows to css box-shadow
-* Converter for RGB <> CMYK <> Hex
-* Converter from Timestamp to detailed dates
-* Converter for encoded or decoded URLs
+- Converter from Photoshop box shadows to css box-shadow
+- Converter for RGB <> CMYK <> Hex
+- Converter from Timestamp to detailed dates
+- Converter for encoded or decoded URLs
+- Bezier Curves Cheat Sheet
+- Base64 encoder/decoder
+- JSON Prettifier
+- SHA encoder
+- UUID generator
